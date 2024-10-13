@@ -1,0 +1,38 @@
+# Classe de base
+class Personne:
+    def __init__(self, nom, age):
+        self.nom = nom
+        self.age = age
+
+    def se_presenter(self):
+        print(f"Bonjour, je m'appelle {self.nom} et j'ai {self.age} ans.")
+
+# Classe dérivée
+class Employe(Personne):
+    def __init__(self, nom, age, poste):
+        super().__init__(nom, age)  # Appel du constructeur de la classe parent
+        self.poste = poste
+
+    def se_presenter(self):
+        # Redéfinir la méthode se_presenter
+        super().se_presenter()  # Appeler la méthode de la classe parent
+        print(f"Je travaille en tant que {self.poste}.")
+
+# Classe dérivée
+class Etudiant(Personne):
+    def __init__(self, nom, age, specialisation):
+        super().__init__(nom, age)  # Appel du constructeur de la classe parent
+        self.specialisation = specialisation
+
+    def se_presenter(self):
+        # Redéfinir la méthode se_presenter
+        super().se_presenter()  # Appeler la méthode de la classe parent
+        print(f"Je suis en spécialisation {self.specialisation}.")
+
+# Création d'objets
+employe1 = Employe("Alice", 30, "Développeuse")
+etudiant1 = Etudiant("Bob", 20, "Informatique")
+
+# Appel des méthodes
+employe1.se_presenter()
+etudiant1.se_presenter()
